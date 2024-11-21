@@ -11,6 +11,7 @@ export const ProfileCardListSearchFreeWordInput = () => {
     <TextInput
       label="フリーワード"
       placeholder="フリーワード"
+      description="管理ラベルなどを横断で検索します。"
       value={freeWord}
       onChange={(event) => setFreeWord(event.currentTarget.value)}
       className="max-w-lg"
