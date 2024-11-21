@@ -6,7 +6,7 @@ export type ValidationSlice = {
   setValidationPhase: (validationPhase: ValidationPhase) => void;
 };
 
-export const validationSlice: StateCreator<
+export const createValidationSlice: StateCreator<
   ValidationSlice,
   [],
   [],

@@ -1,4 +1,5 @@
-import type { ValidationSlice } from "@/model/common/store/slice/validation";
+import type { CommonFormSlice } from "@/model/common/store/type";
+
 import type { AdminLabelSlice } from "../form/inputs/admin-label/slice";
 import type { BirthdaySlice } from "../form/inputs/birthday/slice";
 import type { LuckyNumberSlice } from "../form/inputs/lucky-number/slice";
@@ -26,7 +27,5 @@ export type ProfileCardFormStore = AdminLabelSlice &
   LuckyNumberSlice &
   NameSlice &
   TagsSlice &
-  ValidationSlice &
-  ProfileCardFormSlice & {
-    getFormIsValid: () => boolean;
-  };
+  ProfileCardFormSlice &
+  CommonFormSlice;
