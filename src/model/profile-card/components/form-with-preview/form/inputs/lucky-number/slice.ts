@@ -10,11 +10,11 @@ export type LuckyNumberSlice = {
   getLuckyNumberIsValid: () => boolean;
 };
 
-export const createLuckyNumberSlice: FormInputSliceCreater<LuckyNumberSlice> = (
-  set,
-  get,
-) => ({
-  luckyNumber: 0,
+export const createLuckyNumberSlice: FormInputSliceCreater<
+  LuckyNumberSlice,
+  "luckyNumber"
+> = (initalValue) => (set, get) => ({
+  luckyNumber: initalValue?.luckyNumber ?? 0,
   setLuckyNumber: (luckyNumber) => set({ luckyNumber }),
   getLuckyNumberErrorMessages: () => {
     const value = get().luckyNumber;

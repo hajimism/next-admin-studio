@@ -10,11 +10,11 @@ export type BirthdaySlice = {
   getBirthdayIsValid: () => boolean;
 };
 
-export const createBirthdaySlice: FormInputSliceCreater<BirthdaySlice> = (
-  set,
-  get,
-) => ({
-  birthday: null,
+export const createBirthdaySlice: FormInputSliceCreater<
+  BirthdaySlice,
+  "birthday"
+> = (initalValue) => (set, get) => ({
+  birthday: initalValue?.birthday ?? null,
   setBirthday: (birthday) => set({ birthday }),
   getBirthdayErrorMessages: () => {
     const birthday = get().birthday;
