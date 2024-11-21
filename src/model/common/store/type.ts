@@ -1,4 +1,4 @@
-import type { OperationSlice } from "../feature/operation/operation";
+import type { OperationSlice } from "../feature/operation/slice";
 import type { ValidationSlice } from "./slice/validation";
 
 export type CommonFormSlice = ValidationSlice &
