@@ -22,29 +22,14 @@ export const createProfileCardFormStore = (initialState?: ProfileCardForm) =>
       ...createTagsSlice(set, get, store),
       id: "",
       setId: (id) => set({ id }),
-      setProfileCardForm: (profileCardForm) =>
-        set({
-          id: profileCardForm.id,
-          adminLabel: profileCardForm.adminLabel,
-          birthday: profileCardForm.birthday,
-          luckyNumber: profileCardForm.luckyNumber,
-          name: profileCardForm.name,
-          tags: profileCardForm.tags,
-        }),
+      getFormValue: get,
+      setFormValue: (profileCardForm) => set(profileCardForm),
       getFormIsValid: () =>
         get().getAdminLabelIsValid() &&
         get().getBirthdayIsValid() &&
         get().getLuckyNumberIsValid() &&
         get().getNameIsValid() &&
         get().getTagsIsValid(),
-      getFormValue: () => ({
-        id: get().id,
-        adminLabel: get().adminLabel,
-        birthday: get().birthday,
-        luckyNumber: get().luckyNumber,
-        name: get().name,
-        tags: get().tags,
-      }),
       ...initialState,
     };
   });

@@ -19,7 +19,7 @@ export type ProfileCardFormSlice = {
   id: string;
   setId: (id: string) => void;
   getFormValue: () => ProfileCardForm;
-  setProfileCardForm: (profileCardForm: ProfileCardForm) => void;
+  setFormValue: (profileCardForm: ProfileCardForm) => void;
 };
 
 export type ProfileCardFormStore = AdminLabelSlice &
