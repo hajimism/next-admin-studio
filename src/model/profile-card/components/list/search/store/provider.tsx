@@ -1,8 +1,9 @@
 "use client";
 
 import { type FC, createContext, useRef } from "react";
+
 import { createProfileCardSearchStore } from "../store";
-import type { ProfileCardSearchForm } from "./type";
+import { useProfileCardSearchStoreInitialValue } from "./hook";
 
 export const ProfileCardSearchStoreContext = createContext<
   ReturnType<typeof createProfileCardSearchStore> | undefined
@@ -10,9 +11,9 @@ export const ProfileCardSearchStoreContext = createContext<
 
 export const ProfileCardSearchStoreProvider: FC<{
   children: React.ReactNode;
-  initialState?: ProfileCardSearchForm;
-}> = ({ children, initialState }) => {
+}> = ({ children }) => {
   const storeRef = useRef<ReturnType<typeof createProfileCardSearchStore>>();
+  const initialState = useProfileCardSearchStoreInitialValue();
 
   if (!storeRef.current) {
     storeRef.current = createProfileCardSearchStore(initialState);

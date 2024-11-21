@@ -2,7 +2,10 @@ import { useContext } from "react";
 import { useStore } from "zustand";
 
 import type { ProfileCardSearchStore } from ".";
+import { profileCardSearchConverter } from "../converter";
+import { useProfileCardSearchParams } from "../params/hook";
 import { ProfileCardSearchStoreContext } from "./provider";
+import type { ProfileCardSearchForm } from "./type";
 
 export const useProfileCardSearchStore = <T>(
   selector: (store: ProfileCardSearchStore) => T,
@@ -18,3 +21,9 @@ export const useProfileCardSearchStore = <T>(
   }
   return useStore(profileCardSearchStoreContext, selector);
 };
+
+export const useProfileCardSearchStoreInitialValue =
+  (): ProfileCardSearchForm => {
+    const [params] = useProfileCardSearchParams();
+    return profileCardSearchConverter.toForm(params);
+  };

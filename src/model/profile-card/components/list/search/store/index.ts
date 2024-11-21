@@ -11,7 +11,9 @@ import {
 import type { ProfileCardSearchForm } from "./type";
 
 export type ProfileCardSearchStore = FreeWordSearchInputSlice &
-  LuckyNumberSearchInputSlice;
+  LuckyNumberSearchInputSlice & {
+    getSearchFormValue: () => ProfileCardSearchForm;
+  };
 
 export const createProfileCardSearchStore = (
   initialState?: ProfileCardSearchForm,
@@ -19,5 +21,9 @@ export const createProfileCardSearchStore = (
   create<ProfileCardSearchStore>((set, get, store) => ({
     ...createFreeWordSearchInputSlice(set, get, store),
     ...createLuckyNumberSearchInputSlice(set, get, store),
+    getSearchFormValue: () => ({
+      freeWord: get().freeWord,
+      luckyNumber: get().luckyNumber,
+    }),
     ...initialState,
   }));
