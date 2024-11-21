@@ -1,10 +1,12 @@
+import { Button, Flex, Tooltip } from "@mantine/core";
+import { IconInfoCircle } from "@tabler/icons-react";
 import type { FC } from "react";
 
 import { ContentFooterContainer } from "@/model/common/components/footer";
 
-import { Button, Flex, Tooltip } from "@mantine/core";
-import { IconInfoCircle } from "@tabler/icons-react";
 import { useProfileCardFormStatus } from "../../hooks/form-status";
+import { ProfileCardFormCreateConfirmedButton } from "./operation/create-confirmed/button";
+import { ProfileCardFormCreateDraftButton } from "./operation/create-draft/button";
 
 export const ProfileCardFormFooter: FC = () => {
   const status = useProfileCardFormStatus();
@@ -45,8 +47,8 @@ const NewProfileCardFormFooter: FC = () => {
       </Flex>
 
       <Flex align="center" gap="sm">
-        <Button>下書き保存</Button>
-        <Button>確定保存</Button>
+        <ProfileCardFormCreateDraftButton />
+        <ProfileCardFormCreateConfirmedButton />
       </Flex>
     </Flex>
   );
