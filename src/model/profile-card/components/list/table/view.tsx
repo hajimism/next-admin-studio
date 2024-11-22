@@ -22,7 +22,6 @@ export const ProfileCardTableListView: FC<ProfileCardTableListProps> = ({
             <Table.Td className="text-center text-gray-6" width={12}>
               {index + 1}
             </Table.Td>
-            <Table.Td width={60}>TBD</Table.Td>
             <Table.Td width={400}>
               <Anchor
                 component={Link}

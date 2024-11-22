@@ -18,9 +18,6 @@ export const ProfileCardTableListLoading = () => {
               <Skeleton height={15} width={12} radius="md" />
             </Table.Td>
             <Table.Td py="sm">
-              <Skeleton height={15} width={60} radius="md" />
-            </Table.Td>
-            <Table.Td py="sm">
               <Skeleton height={15} width={400} radius="md" />
             </Table.Td>
             <Table.Td py="sm">

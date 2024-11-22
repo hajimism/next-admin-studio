@@ -10,7 +10,6 @@ export const ProfileCardFormWithPreview = () => {
       <ScrollArea p="xl" className="h-[calc(100vh-60px)]">
         <Stack>
           <ProfileCardFormWithPreviewBreadcrumbs />
-          {/* {isOpen ? <AlertForOpenContentForm /> : <Space h={36} />} */}
           <Stack
             justify="center"
             align="center"
