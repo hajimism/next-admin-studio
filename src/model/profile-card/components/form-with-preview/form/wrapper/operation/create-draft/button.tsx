@@ -4,14 +4,15 @@ import type { FC } from "react";
 import { useProfileCardFormCreateDraft } from "./hook";
 
 export const ProfileCardFormCreateDraftButton: FC = () => {
-  const { loading, disabled, onClick } = useProfileCardFormCreateDraft();
+  const { loading, disabled, formAction } = useProfileCardFormCreateDraft();
 
   return (
     <Button
       variant="outline"
       loading={loading}
       disabled={disabled}
-      onClick={onClick}
+      formAction={formAction}
+      type="submit"
     >
       下書き保存
     </Button>
