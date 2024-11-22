@@ -1,29 +1,13 @@
-import type { ProfileCardFormServerState } from "../server-state/type";
+import { NEW_ITEM_ID } from "@/model/common/const/key";
+import { PROFILE_CARD_MOCK_DATA } from "@/model/profile-card/mock";
 
-export const PROFILE_CARD_MOCK_DATA: ProfileCardFormServerState[] = [
-  {
-    id: "1",
-    adminLabel: "1つめのプロフィールカード",
-    birthday: new Date().toISOString(),
-    creationStatus: "DRAFT",
-    luckyNumber: 1,
-    name: "テストユーザー1",
-    tags: ["タグ1", "タグ2", "タグ3"],
-  },
-  {
-    id: "2",
-    adminLabel: "2つめのプロフィールカード",
-    birthday: new Date().toISOString(),
-    creationStatus: "CONFIRMED",
-    luckyNumber: 2,
-    name: "テストユーザー2",
-    tags: ["タグ4", "タグ5", "タグ6"],
-  },
-];
+import type { ProfileCardFormServerState } from "../server-state/type";
 
 export const getProfileCard = async (
   id: string,
 ): Promise<ProfileCardFormServerState | undefined> => {
+  if (id === NEW_ITEM_ID) return undefined;
+
   const profileCard = PROFILE_CARD_MOCK_DATA.find(
     (profileCard) => profileCard.id === id,
   );
