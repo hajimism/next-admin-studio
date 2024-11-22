@@ -13,7 +13,7 @@ type Props = {
   };
 };
 
-export const ContentFooterContainer: FC<Props> = ({ status, footer }) => {
+export const ContentFormFooterTamplate: FC<Props> = ({ status, footer }) => {
   return match(status)
     .with(undefined, () => footer.onNew)
     .with(CONTENT_STATUS.NEW, () => footer.onNew)
