@@ -1,3 +1,5 @@
+"use client";
+
 import { ActionIcon, Menu, Text, rem } from "@mantine/core";
 import { IconDotsVertical, IconRefresh, IconTrash } from "@tabler/icons-react";
 import type { FC } from "react";

@@ -1,3 +1,5 @@
+"use client";
+
 import { Divider, Flex, Title } from "@mantine/core";
 import type { FC } from "react";
 
