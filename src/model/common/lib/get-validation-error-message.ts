@@ -2,14 +2,17 @@ import { match } from "ts-pattern";
 
 import type { Validation } from "@/common/lib/form-validation/type";
 
-export type ValidationPhase = "onChange" | "onDraftSubmit" | "onConfirmSubmit";
+export type ValidationPhase =
+  | "onChange"
+  | "onDraftSubmit"
+  | "onConfirmedSubmit";
 
 type Props<T> = {
   phase: ValidationPhase;
   validations: {
     onChange?: Validation<T>[];
     onDraftSubmit?: Validation<T>[];
-    onConfirmSubmit?: Validation<T>[];
+    onConfirmedSubmit?: Validation<T>[];
   };
 };
 
@@ -33,7 +36,7 @@ export const getValidationtErrorMessage = <T>({
   validations = {
     onChange: [],
     onDraftSubmit: [],
-    onConfirmSubmit: [],
+    onConfirmedSubmit: [],
   },
 }: Props<T>) => {
   const validationsOnPhase = match(phase)
@@ -42,10 +45,10 @@ export const getValidationtErrorMessage = <T>({
       ...(validations.onChange ?? []),
       ...(validations.onDraftSubmit ?? []),
     ])
-    .with("onConfirmSubmit", () => [
+    .with("onConfirmedSubmit", () => [
       ...(validations.onChange ?? []),
       ...(validations.onDraftSubmit ?? []),
-      ...(validations.onConfirmSubmit ?? []),
+      ...(validations.onConfirmedSubmit ?? []),
     ])
     .exhaustive();
 
