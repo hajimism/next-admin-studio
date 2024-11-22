@@ -2,14 +2,14 @@ import { Box, Flex, Stack } from "@mantine/core";
 import type { FC, PropsWithChildren, ReactNode } from "react";
 
 type Props = {
-  renderHeader: () => ReactNode;
-  renderFooter: () => ReactNode;
+  header: ReactNode;
+  footer: ReactNode;
 };
 
 export const ContentFormTemplate: FC<PropsWithChildren<Props>> = ({
   children,
-  renderHeader,
-  renderFooter,
+  header,
+  footer,
 }) => {
   return (
     <Flex
@@ -19,12 +19,12 @@ export const ContentFormTemplate: FC<PropsWithChildren<Props>> = ({
       className="h-[calc(100vh-60px)] border border-gray-4 border-t-0 border-r-0 border-b-0 border-solid"
     >
       <Box className="grow overflow-y-scroll scroll-smooth">
-        {renderHeader()}
+        {header}
         <Stack gap="lg" px="lg" py="lg">
           {children}
         </Stack>
       </Box>
-      {renderFooter()}
+      {footer}
     </Flex>
   );
 };
