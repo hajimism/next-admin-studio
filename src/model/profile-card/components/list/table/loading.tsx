@@ -1,3 +1,5 @@
+"use client";
+
 import { Skeleton, Table } from "@mantine/core";
 
 import { DEFAULT_PAGE_SIZE } from "@/model/common/components/pagination/const";

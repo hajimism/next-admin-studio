@@ -7,11 +7,13 @@ import { truncateText } from "@/common/lib/truncate-text";
 import { ModelPathMapping } from "@/model/common/const";
 
 import { ProfileCardTableHead } from "./head";
-import type { ProfileCardTableListProps } from "./type";
+import type { ProfileCardTableList } from "./type";
 
-export const ProfileCardTableListView: FC<ProfileCardTableListProps> = ({
-  profileCards,
-}) => {
+type Props = {
+  profileCards: ProfileCardTableList;
+};
+
+export const ProfileCardTableListView: FC<Props> = ({ profileCards }) => {
   return (
     <Table>
       <ProfileCardTableHead />

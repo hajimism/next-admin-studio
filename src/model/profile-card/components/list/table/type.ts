@@ -1,7 +1,6 @@
-export type ProfileCardTableListProps = {
-  profileCards: {
-    id: string;
-    adminLabel: string;
-    luckyNumber: number;
-  }[];
-};
+import type { ProfileCardFormServerState } from "../../form-with-preview/server-state/type";
+
+export type ProfileCardTableList = Pick<
+  ProfileCardFormServerState,
+  "id" | "adminLabel" | "luckyNumber"
+>[];
