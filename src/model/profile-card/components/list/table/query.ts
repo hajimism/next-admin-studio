@@ -1,15 +1,13 @@
-import { cache } from "react";
-
 import { DEFAULT_PAGE_SIZE } from "@/model/common/components/pagination/const";
 import { PROFILE_CARD_MOCK_DATA } from "@/model/profile-card/mock";
 
 import type { ProfileCardTableListProps } from "./type";
 
-export const getProfileCardTableItems = async ({
+export const useProfileCardTableItems = ({
   page = 1,
 }: {
   page: number;
-}): Promise<ProfileCardTableListProps["profileCards"]> => {
+}): ProfileCardTableListProps["profileCards"] => {
   const start = (page - 1) * DEFAULT_PAGE_SIZE;
   const end = start + DEFAULT_PAGE_SIZE;
 
@@ -19,5 +17,3 @@ export const getProfileCardTableItems = async ({
     luckyNumber: profileCard.luckyNumber,
   }));
 };
-
-export const getProfileCardTableItemsCache = cache(getProfileCardTableItems);

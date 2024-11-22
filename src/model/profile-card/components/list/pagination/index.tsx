@@ -1,13 +1,14 @@
 "use client";
 
 import { Center } from "@mantine/core";
-import { type FC, use } from "react";
+import type { FC } from "react";
 
 import { Pagination } from "@/model/common/components/pagination";
-import { getProfileCardListTotalPageCountCache } from "./query";
+
+import { useProfileCardListTotalPageCount } from "./query";
 
 export const ProfileCardListPagination: FC = () => {
-  const total = use(getProfileCardListTotalPageCountCache());
+  const total = useProfileCardListTotalPageCount();
 
   return (
     <Center>
