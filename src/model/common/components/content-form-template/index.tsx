@@ -17,6 +17,8 @@ export const ContentFormTemplate: FC<PropsWithChildren<Props>> = ({
       direction="column"
       // 単にborder-lでは上手くいかなかった
       className="h-[calc(100vh-60px)] border border-gray-4 border-t-0 border-r-0 border-b-0 border-solid"
+      // 「下書き保存時はrequired無視」など、独自のバリデーションを使用するため
+      noValidate
     >
       <Box className="grow overflow-y-scroll scroll-smooth">
         {header}
