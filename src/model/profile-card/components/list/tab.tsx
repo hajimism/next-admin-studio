@@ -1,16 +1,18 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { type FC, Suspense } from "react";
+import type { FC, ReactNode } from "react";
 
 import { ListTab } from "@/model/common/components/list-tab";
 import { ModelPathMapping } from "@/model/common/const";
 import { NEW_ITEM_ID } from "@/model/common/const/key";
 
-import { ProfileCardTableListContainer } from "./table/container";
-import { ProfileCardTableListLoading } from "./table/loading";
+type Props = {
+  table: ReactNode;
+  preview: ReactNode;
+};
 
-export const ProfileCardListTab: FC = () => {
+export const ProfileCardListTab: FC<Props> = ({ table, preview }) => {
   const router = useRouter();
 
   const onCreateNew = () => {
@@ -19,12 +21,8 @@ export const ProfileCardListTab: FC = () => {
 
   return (
     <ListTab
-      renderTable={() => (
-        <Suspense fallback={<ProfileCardTableListLoading />}>
-          <ProfileCardTableListContainer />
-        </Suspense>
-      )}
-      renderPreviewList={() => <div>プレビュー</div>}
+      renderTable={() => table}
+      renderPreviewList={() => preview}
       onCreateNew={onCreateNew}
     />
   );
