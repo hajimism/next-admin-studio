@@ -75,7 +75,7 @@ const DraftProfileCardFormFooter: FC = () => {
       </Flex>
 
       <Flex align="center" gap="sm">
-        <Button>更新</Button>
+        <Button variant="outline">更新</Button>
         <Button>確定保存</Button>
       </Flex>
     </Flex>
@@ -103,10 +103,7 @@ const ConfirmedProfileCardFormFooter: FC = () => {
           <IconInfoCircle color="#ccc" />
         </Tooltip>
       </Flex>
-      <Flex align="center" gap="sm">
-        <Button variant="outline">複製</Button>
-        <Button>更新</Button>
-      </Flex>
+      <Button>更新</Button>
     </Flex>
   );
 };
@@ -124,10 +121,7 @@ const TemporarilyClosedProfileCardFormFooter: FC = () => {
         </Tooltip>
       </Flex>
 
-      <Flex align="center" gap="sm">
-        <Button variant="outline">複製</Button>
-        <Button>更新</Button>
-      </Flex>
+      <Button>更新</Button>
     </Flex>
   );
 };
