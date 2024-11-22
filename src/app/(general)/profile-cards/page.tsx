@@ -1,12 +1,12 @@
 import { Stack, Title } from "@mantine/core";
 
-import { ProfileCardListContainer } from "@/model/profile-card/components/list/container";
+import { ProfileCardList } from "@/model/profile-card/components/list";
 
 export default function ProfileCardListPage() {
   return (
     <Stack p="xl" gap="lg">
       <Title>プロフィールカード一覧</Title>
-      <ProfileCardListContainer />
+      <ProfileCardList />
     </Stack>
   );
 }
