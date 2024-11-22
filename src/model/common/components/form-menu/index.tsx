@@ -76,6 +76,20 @@ export const FormMenuButton: FC<Props> = ({
         >
           リセット
         </Menu.Item>
+
+        <Menu.Item
+          disabled={!isCopyable}
+          onClick={() => {
+            openConfirmModal({
+              ...MODAL_PROPS.ON_COPY_AND_NEW,
+              onConfirm: () => onCopyAndNew(),
+            });
+          }}
+          leftSection={<IconCopy style={{ width: rem(14), height: rem(14) }} />}
+        >
+          コピーして新規作成
+        </Menu.Item>
+
         <Menu.Item
           color="red"
           disabled={!isDeletable}
@@ -90,18 +104,6 @@ export const FormMenuButton: FC<Props> = ({
           }
         >
           削除
-        </Menu.Item>
-        <Menu.Item
-          disabled={!isCopyable}
-          onClick={() => {
-            openConfirmModal({
-              ...MODAL_PROPS.ON_COPY_AND_NEW,
-              onConfirm: () => onCopyAndNew(),
-            });
-          }}
-          leftSection={<IconCopy style={{ width: rem(14), height: rem(14) }} />}
-        >
-          コピーして新規作成
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>
