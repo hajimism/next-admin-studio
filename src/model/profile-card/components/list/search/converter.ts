@@ -5,13 +5,13 @@ export const profileCardSearchConverter = {
   toParams: (store: ProfileCardSearchForm): ProfileCardSearchParams => {
     return {
       q: store.freeWord,
-      luckyNumber: store.luckyNumber,
+      ln: store.luckyNumber,
     };
   },
   toForm: (params: ProfileCardSearchParams): ProfileCardSearchForm => {
     return {
       freeWord: params.q,
-      luckyNumber: params.luckyNumber,
+      luckyNumber: params.ln,
     };
   },
 };

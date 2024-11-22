@@ -7,7 +7,7 @@ import {
 
 export const profileCardSearchParams = {
   q: parseAsString.withDefault(""),
-  luckyNumber: parseAsInteger.withDefault(0),
+  ln: parseAsInteger.withDefault(0),
 };
 
 export const profileCardSearchParamsCache = createSearchParamsCache(
