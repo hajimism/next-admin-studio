@@ -43,10 +43,13 @@ module.exports = {
         "2xl": "90em",
       },
       animation: {
-        "fade-in": "fade-in 1s cubic-bezier(0.25, 0.1, 0.25, 1) both",
+        "table-fade-in":
+          "table-fade-in 1s cubic-bezier(0.25, 0.1, 0.25, 1) both",
+        "preview-fade-in":
+          "preview-fade-in 1s cubic-bezier(0.25, 0.1, 0.25, 1) both",
       },
       keyframes: {
-        "fade-in": {
+        "preview-fade-in": {
           "0%": {
             transform: "translateY(12px)",
             opacity: "0",
@@ -56,6 +59,17 @@ module.exports = {
           },
           to: {
             transform: "translateY(0)",
+            opacity: "1",
+          },
+        },
+        "table-fade-in": {
+          "0%": {
+            opacity: "0",
+          },
+          "80%": {
+            opacity: "0.8",
+          },
+          to: {
             opacity: "1",
           },
         },
