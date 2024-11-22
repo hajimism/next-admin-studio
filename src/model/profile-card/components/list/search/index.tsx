@@ -1,19 +1,31 @@
-import type { FC } from "react";
+"use client";
 
-import { CollapsedSearchBox } from "@/model/common/components/collapsed-search-box";
+import type { FC, FormEvent } from "react";
 
+import { SearchFormTemplate } from "@/model/common/components/search-form-template";
+
+import { profileCardSearchConverter } from "./converter";
 import { ProfileCardListSearchFreeWordInput } from "./inputs/free-word";
 import { ProfileCardListSearchLuckyNumberInput } from "./inputs/lucky-number";
-import { ProfileCardListSearchFormWrapper } from "./wrapper";
+import { useProfileCardSearchParams } from "./params/hook";
+import { useProfileCardSearchStore } from "./store/hook";
 
 export const ProfileCardListSearchForm: FC = () => {
-  return (
-    <ProfileCardListSearchFormWrapper>
-      <ProfileCardListSearchFreeWordInput />
+  const [, setParams] = useProfileCardSearchParams();
+  const getSearchFormValue = useProfileCardSearchStore(
+    (state) => state.getSearchFormValue,
+  );
 
-      <CollapsedSearchBox>
-        <ProfileCardListSearchLuckyNumberInput />
-      </CollapsedSearchBox>
-    </ProfileCardListSearchFormWrapper>
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setParams(profileCardSearchConverter.toParams(getSearchFormValue()));
+  };
+
+  return (
+    <SearchFormTemplate
+      onSubmit={handleSubmit}
+      renderBasicFilters={() => <ProfileCardListSearchFreeWordInput />}
+      renderAdvancedFilters={() => <ProfileCardListSearchLuckyNumberInput />}
+    />
   );
 };

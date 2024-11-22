@@ -20,7 +20,7 @@ export const CollapsedSearchBox: FC<PropsWithChildren> = ({ children }) => {
           p={0}
           c="gray"
         >
-          <Text size="sm">詳細条件</Text>
+          <Text size="sm">さらに詳しく</Text>
         </Button>
       </Flex>
       <Collapse in={opened}>
