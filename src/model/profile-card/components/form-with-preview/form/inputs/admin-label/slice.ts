@@ -1,4 +1,7 @@
-import { getValidationtErrorMessage } from "@/model/common/lib/get-validation-error-message";
+import {
+  type ValidationPhase,
+  getValidationtErrorMessage,
+} from "@/model/common/lib/get-validation-error-message";
 import type { FormInputSliceCreater } from "@/model/common/types/form-input-slice";
 
 import {
@@ -9,7 +12,10 @@ import {
 export type AdminLabelSlice = {
   adminLabel: string;
   setAdminLabel: (adminLabel: string) => void;
-  getAdminLabelErrorMessages: () => string[];
+  getAdminLabelErrorMessages: (
+    value: string,
+    phase: ValidationPhase,
+  ) => string[];
   getAdminLabelIsValid: () => boolean;
 };
 
@@ -19,18 +25,19 @@ export const createAdminLabelSliceX: FormInputSliceCreater<
 > = (initalValue) => (set, get) => ({
   adminLabel: initalValue?.adminLabel ?? "",
   setAdminLabel: (adminLabel) => set({ adminLabel }),
-  getAdminLabelErrorMessages: () => {
-    const value = get().adminLabel;
+  getAdminLabelErrorMessages: (value, phase) => {
     return getValidationtErrorMessage({
-      phase: get().validationPhase,
+      phase,
       validations: {
         onChange: validateProfileCardAdminLabelOnChange(value),
-        onConfirmSubmit: validateProfileCardAdminLabelOnSubmit(value),
+        onConfirmedSubmit: validateProfileCardAdminLabelOnSubmit(value),
       },
     });
   },
   getAdminLabelIsValid: () => {
-    const errorMessages = get().getAdminLabelErrorMessages();
+    const value = get().adminLabel;
+    const phase = get().validationPhase;
+    const errorMessages = get().getAdminLabelErrorMessages(value, phase);
     return errorMessages.length === 0;
   },
 });

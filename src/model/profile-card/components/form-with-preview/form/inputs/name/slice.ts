@@ -1,4 +1,7 @@
-import { getValidationtErrorMessage } from "@/model/common/lib/get-validation-error-message";
+import {
+  type ValidationPhase,
+  getValidationtErrorMessage,
+} from "@/model/common/lib/get-validation-error-message";
 
 import type { FormInputSliceCreater } from "@/model/common/types/form-input-slice";
 import {
@@ -9,7 +12,7 @@ import {
 export type NameSlice = {
   name: string;
   setName: (name: string) => void;
-  getNameErrorMessages: () => string[];
+  getNameErrorMessages: (value: string, phase: ValidationPhase) => string[];
   getNameIsValid: () => boolean;
 };
 
@@ -17,18 +20,19 @@ export const createNameSlice: FormInputSliceCreater<NameSlice, "name"> =
   (initalValue) => (set, get) => ({
     name: initalValue?.name ?? "",
     setName: (name) => set({ name }),
-    getNameErrorMessages: () => {
-      const value = get().name;
+    getNameErrorMessages: (value, phase) => {
       return getValidationtErrorMessage({
-        phase: get().validationPhase,
+        phase,
         validations: {
           onChange: validateProfileCardNameOnChange(value),
-          onConfirmSubmit: validateProfileCardNameOnSubmit(value),
+          onConfirmedSubmit: validateProfileCardNameOnSubmit(value),
         },
       });
     },
     getNameIsValid: () => {
-      const errorMessages = get().getNameErrorMessages();
+      const value = get().name;
+      const phase = get().validationPhase;
+      const errorMessages = get().getNameErrorMessages(value, phase);
       return errorMessages.length === 0;
     },
   });

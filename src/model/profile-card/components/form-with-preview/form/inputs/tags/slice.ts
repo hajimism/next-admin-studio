@@ -23,7 +23,7 @@ export const createTagsSlice: FormInputSliceCreater<TagsSlice, "tags"> =
         phase: get().validationPhase,
         validations: {
           onChange: validateProfileCardTagsOnChange(value),
-          onConfirmSubmit: validateProfileCardTagsOnSubmit(value),
+          onConfirmedSubmit: validateProfileCardTagsOnSubmit(value),
         },
       });
     },
