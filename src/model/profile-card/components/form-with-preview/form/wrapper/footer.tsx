@@ -5,13 +5,15 @@ import { IconInfoCircle } from "@tabler/icons-react";
 import type { FC } from "react";
 
 import { ContentFormFooterTamplate } from "@/model/common/components/content-form-footer-template";
+import { useContentIdFromPagePath } from "@/model/common/hooks/model-page-path";
 
 import { useProfileCardFormStatus } from "../../hooks/form-status";
 import { ProfileCardFormCreateConfirmedButton } from "./operation/create-confirmed/button";
 import { ProfileCardFormCreateDraftButton } from "./operation/create-draft/button";
 
 export const ProfileCardFormFooter: FC = () => {
-  const status = useProfileCardFormStatus();
+  const contentId = useContentIdFromPagePath("ProfileCard");
+  const status = useProfileCardFormStatus(contentId);
 
   return (
     <ContentFormFooterTamplate
@@ -112,7 +114,7 @@ const TemporarilyClosedProfileCardFormFooter: FC = () => {
   return (
     <Flex bg="white" p="sm" justify="space-between" style={FOOTER_STYLE}>
       <Flex align="center" gap="sm">
-        <Button>再公開</Button>
+        <Button variant="outline">再公開</Button>
         <Tooltip
           label="再公開すると、公開期間内であればアプリ上に現れるようになります😄"
           withArrow

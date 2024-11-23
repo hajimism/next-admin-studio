@@ -3,7 +3,9 @@ import {
   type ContentStatus,
 } from "@/model/common/const/content-status";
 
-export const useProfileCardFormStatus = (): ContentStatus => {
-  // TODO: フォームのステータスを取得する
-  return CONTENT_STATUS.NEW;
+import { useProfileCardServerState } from "../server-state/hook";
+
+export const useProfileCardFormStatus = (id: string): ContentStatus => {
+  const serverState = useProfileCardServerState(id);
+  return serverState?.creationStatus ?? CONTENT_STATUS.NEW;
 };
