@@ -1,4 +1,5 @@
-import { MODELS, type ModelName, ModelPathMapping } from "@/model/common/const";
+import { MODELS } from "@/model/common/const";
+import { profileCardPathMapping } from "@/model/profile-card/lib/path";
 import {
   Box,
   Flex,
@@ -25,16 +26,16 @@ type NavLink = {
   path: string;
 };
 
-const getNavBarItem = (model: ModelName): NavLink => ({
-  label: MODELS[model].label,
-  path: ModelPathMapping[model].indexPath,
-});
-
 const NAV_GROUPS: NavGroup[] = [
   {
     label: "コンテンツ",
     icon: IconFile,
-    links: [getNavBarItem("ProfileCard")],
+    links: [
+      {
+        label: MODELS.ProfileCard.label,
+        path: profileCardPathMapping.indexPath,
+      },
+    ],
   },
 ];
 
