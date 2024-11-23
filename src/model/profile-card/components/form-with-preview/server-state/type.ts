@@ -1,3 +1,5 @@
+import type { ContentStatus } from "@/model/common/const/content-status";
+
 export type ProfileCardFormServerState = {
   id: string;
   adminLabel: string;
@@ -5,5 +7,5 @@ export type ProfileCardFormServerState = {
   luckyNumber: number;
   name: string;
   tags: string[];
-  creationStatus: "DRAFT" | "CONFIRMED";
+  creationStatus: ContentStatus;
 };
