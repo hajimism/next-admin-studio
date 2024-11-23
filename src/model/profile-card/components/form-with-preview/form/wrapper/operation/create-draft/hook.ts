@@ -1,11 +1,13 @@
-import { errorToast, loadingToast } from "@/common/components/form/toast";
 import { useCallback } from "react";
+
+import { errorToast, loadingToast } from "@/common/components/form/toast";
+
 import {
   useProfileCardFormOperationState,
   useProfileCardFormStore,
 } from "../../../../store/hook";
 
-export const useProfileCardFormCreateDraft = () => {
+export const useCreateDraftProfileCardForm = () => {
   const { loading, disabled, startOperation } =
     useProfileCardFormOperationState("CREATE_DRAFT");
   const getFormIsValid = useProfileCardFormStore(
@@ -32,23 +34,23 @@ export const useProfileCardFormCreateDraft = () => {
     const { settleOperation } = startOperation();
     // ユーザーにフィードバック
     const { settle: settleToast, error: loadingErrorToast } = loadingToast({
-      message: "コンテンツを確定保存しています",
+      message: "コンテンツを下書き保存しています",
     });
 
-    // 2秒待つ
+    // TODO
     await new Promise((resolve) => setTimeout(resolve, 500));
+
+    settleOperation();
 
     // TODO
     const isError = false;
     if (isError) {
       loadingErrorToast({
-        message: "コンテンツの確定保存に失敗しました",
+        message: "コンテンツの下書き保存に失敗しました",
       });
       return;
     }
 
-    settleOperation();
-    // ユーザーにフィードバック
     settleToast({
       message: "下書き保存が完了しました！",
     });

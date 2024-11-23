@@ -1,10 +1,12 @@
+"use client";
+
 import { Button } from "@mantine/core";
 import type { FC } from "react";
 
-import { useProfileCardFormCreateDraft } from "./hook";
+import { useCreateDraftProfileCardForm } from "./hook";
 
-export const ProfileCardFormCreateDraftButton: FC = () => {
-  const { loading, disabled, formAction } = useProfileCardFormCreateDraft();
+export const CreateDraftProfileCardFormButton: FC = () => {
+  const { loading, disabled, formAction } = useCreateDraftProfileCardForm();
 
   return (
     <Button
