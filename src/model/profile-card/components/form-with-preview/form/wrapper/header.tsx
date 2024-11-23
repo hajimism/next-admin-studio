@@ -1,13 +1,12 @@
 "use client";
 
 import { Divider, Flex, Title } from "@mantine/core";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import type { FC } from "react";
 
 import { FormMenuButton } from "@/model/common/components/form-menu";
-import { ModelPathMapping } from "@/model/common/const";
 import { NEW_ITEM_ID } from "@/model/common/const/key";
-import { useContentIdFromPagePath } from "@/model/common/hooks/model-page-path";
+import { profileCardPathMapping } from "@/model/profile-card/lib/path";
 
 import { profileCardConverter } from "../../converter";
 import { useProfileCardServerState } from "../../server-state/hook";
@@ -16,7 +15,8 @@ import { useProfileCardFormStore } from "../../store/hook";
 import { deleteProfileCard } from "./operation/delete/query";
 
 export const ProfileCardFormHeader: FC = () => {
-  const contentId = useContentIdFromPagePath("ProfileCard");
+  const pathname = usePathname();
+  const contentId = profileCardPathMapping.pathToId(pathname) ?? NEW_ITEM_ID;
   const router = useRouter();
   const serverState = useProfileCardServerState(contentId);
   const setFormValue = useProfileCardFormStore((state) => state.setFormValue);
@@ -40,7 +40,7 @@ export const ProfileCardFormHeader: FC = () => {
 
   const onCopyAndNew = () => {
     router.push(
-      `${ModelPathMapping.ProfileCard.idToPath(NEW_ITEM_ID)}?base=${contentId}`,
+      `${profileCardPathMapping.idToPath(NEW_ITEM_ID)}?base=${contentId}`,
     );
   };
 

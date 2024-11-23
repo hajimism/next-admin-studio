@@ -2,10 +2,12 @@
 
 import { Flex, Tooltip } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
+import { usePathname } from "next/navigation";
 import type { FC } from "react";
 
 import { ContentFormFooterTamplate } from "@/model/common/components/content-form-footer-template";
-import { useContentIdFromPagePath } from "@/model/common/hooks/model-page-path";
+import { NEW_ITEM_ID } from "@/model/common/const/key";
+import { profileCardPathMapping } from "@/model/profile-card/lib/path";
 
 import { useProfileCardFormStatus } from "../../hooks/form-status";
 import { CancelTemporaryCloseProfileCardButton } from "./operation/cancel-temporary-close/button";
@@ -17,7 +19,8 @@ import { EditDraftProfileCardFormButton } from "./operation/edit-draft/button";
 import { TemporarilyCloseProfileCardFormButton } from "./operation/temporarily-close/button";
 
 export const ProfileCardFormFooter: FC = () => {
-  const contentId = useContentIdFromPagePath("ProfileCard");
+  const pathname = usePathname();
+  const contentId = profileCardPathMapping.pathToId(pathname) ?? NEW_ITEM_ID;
   const status = useProfileCardFormStatus(contentId);
 
   return (
