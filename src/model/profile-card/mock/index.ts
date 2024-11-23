@@ -39,7 +39,7 @@ export const PROFILE_CARD_MOCK_DATA: ProfileCardFormServerState[] = [
   },
   {
     id: "5",
-    adminLabel: "5つめのプロフィールカード",
+    adminLabel: "下書きプロフィールカード",
     birthday: new Date().toISOString(),
     creationStatus: "DRAFT",
     luckyNumber: 5,
@@ -48,7 +48,7 @@ export const PROFILE_CARD_MOCK_DATA: ProfileCardFormServerState[] = [
   },
   {
     id: "6",
-    adminLabel: "6つめのプロフィールカード",
+    adminLabel: "確定のプロフィールカード",
     birthday: new Date().toISOString(),
     creationStatus: "CONFIRMED",
     luckyNumber: 6,
@@ -57,9 +57,9 @@ export const PROFILE_CARD_MOCK_DATA: ProfileCardFormServerState[] = [
   },
   {
     id: "7",
-    adminLabel: "7つめのプロフィールカード",
+    adminLabel: "公開停止のプロフィールカード",
     birthday: new Date().toISOString(),
-    creationStatus: "DRAFT",
+    creationStatus: "TEMPORARILY_CLOSED",
     luckyNumber: 7,
     name: "テストユーザー7",
     tags: ["タグ19", "タグ20", "タグ21"],
