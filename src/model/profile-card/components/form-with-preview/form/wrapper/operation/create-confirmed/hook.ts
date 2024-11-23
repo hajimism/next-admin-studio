@@ -5,7 +5,7 @@ import {
   useProfileCardFormStore,
 } from "../../../../store/hook";
 
-export const useProfileCardFormCreateConfirmed = () => {
+export const useCreateConfirmedProfileCardForm = () => {
   const { loading, disabled, startOperation } =
     useProfileCardFormOperationState("CREATE_CONFIRMED");
   const getFormIsValid = useProfileCardFormStore(
@@ -38,6 +38,8 @@ export const useProfileCardFormCreateConfirmed = () => {
     // TODO
     await new Promise((resolve) => setTimeout(resolve, 500));
 
+    settleOperation();
+
     // TODO
     const isError = false;
     if (isError) {
@@ -46,7 +48,6 @@ export const useProfileCardFormCreateConfirmed = () => {
       });
     }
 
-    settleOperation();
     settleToast({
       message: "確定保存が完了しました！",
     });

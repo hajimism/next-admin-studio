@@ -1,10 +1,12 @@
+"use client";
+
 import { Button } from "@mantine/core";
 import type { FC } from "react";
 
-import { useProfileCardFormCreateConfirmed } from "./hook";
+import { useCreateConfirmedProfileCardForm } from "./hook";
 
-export const ProfileCardFormCreateConfirmedButton: FC = () => {
-  const { loading, disabled, formAction } = useProfileCardFormCreateConfirmed();
+export const CreateConfirmedProfileCardFormButton: FC = () => {
+  const { loading, disabled, formAction } = useCreateConfirmedProfileCardForm();
 
   return (
     <Button
