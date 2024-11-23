@@ -4,7 +4,7 @@ import type { FC } from "react";
 
 import { truncateText } from "@/common/lib/truncate-text";
 
-import { ModelPathMapping } from "@/model/common/const";
+import { profileCardPathMapping } from "@/model/profile-card/lib/path";
 
 import { ProfileCardTableHead } from "./head";
 import type { ProfileCardTableList } from "./type";
@@ -27,7 +27,7 @@ export const ProfileCardTableListView: FC<Props> = ({ profileCards }) => {
             <Table.Td width={400}>
               <Anchor
                 component={Link}
-                href={ModelPathMapping.ProfileCard.idToPath(profileCard.id)}
+                href={profileCardPathMapping.idToPath(profileCard.id)}
                 fw="bold"
               >
                 {truncateText(profileCard.adminLabel, { length: 32 })}
