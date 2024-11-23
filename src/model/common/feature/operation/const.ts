@@ -7,7 +7,7 @@ export const CONTENT_OPERATIONS = [
   "EDIT_CONFIRMED",
   "EDIT_DRAFT",
   "TEMPORARILY_CLOSE",
-  "CANCEL_TEMPORAL_CLOSE",
+  "CANCEL_TEMPORARY_CLOSE",
 ] as const;
 
 export const CONTENT_OPERATION_NAME_MAPPING = {
@@ -19,7 +19,7 @@ export const CONTENT_OPERATION_NAME_MAPPING = {
   EDIT_CONFIRMED: { name: "更新" },
   EDIT_DRAFT: { name: "更新" },
   TEMPORARILY_CLOSE: { name: "公開停止" },
-  CANCEL_TEMPORAL_CLOSE: { name: "再公開" },
+  CANCEL_TEMPORARY_CLOSE: { name: "再公開" },
 } as const satisfies Record<ContentOperation, { name: string }>;
 
 export type ContentOperation = (typeof CONTENT_OPERATIONS)[number];
