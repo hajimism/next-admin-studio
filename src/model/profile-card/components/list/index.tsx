@@ -11,23 +11,25 @@ import { ProfileCardTableListLoading } from "./table/loading";
 export const ProfileCardList: FC = () => {
   return (
     <Stack>
-      <ProfileCardListSearchForm />
-
-      <ProfileCardListTab
-        table={
-          <Suspense fallback={<ProfileCardTableListLoading />}>
-            <ProfileCardTableListContainer />
-          </Suspense>
-        }
-        preview={
-          <Suspense>
-            <ProfileCardPreviewListContainer />
-          </Suspense>
-        }
-      />
-
       <Suspense>
-        <ProfileCardListPagination />
+        <ProfileCardListSearchForm />
+
+        <ProfileCardListTab
+          table={
+            <Suspense fallback={<ProfileCardTableListLoading />}>
+              <ProfileCardTableListContainer />
+            </Suspense>
+          }
+          preview={
+            <Suspense>
+              <ProfileCardPreviewListContainer />
+            </Suspense>
+          }
+        />
+
+        <Suspense>
+          <ProfileCardListPagination />
+        </Suspense>
       </Suspense>
     </Stack>
   );
