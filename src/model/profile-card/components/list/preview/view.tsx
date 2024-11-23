@@ -3,7 +3,8 @@ import Link from "next/link";
 import type { FC } from "react";
 
 import { truncateText } from "@/common/lib/truncate-text";
-import { ModelPathMapping } from "@/model/common/const";
+
+import { profileCardPathMapping } from "@/model/profile-card/lib/path";
 
 import { ProfileCardBirthdayPreviewView } from "../../preview/birthday";
 import { ProfileCardLuckyNumberPreviewView } from "../../preview/lucky-number";
@@ -34,7 +35,7 @@ export const ProfileCardPreviewListView: FC<Props> = ({ profileCards }) => {
           <Stack>
             <Anchor
               component={Link}
-              href={ModelPathMapping.ProfileCard.idToPath(profileCard.id)}
+              href={profileCardPathMapping.idToPath(profileCard.id)}
               fw="bold"
               underline="never"
               className="w-fit"
