@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Flex, Tooltip } from "@mantine/core";
+import { Flex, Tooltip } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
 import type { FC } from "react";
 
@@ -8,8 +8,13 @@ import { ContentFormFooterTamplate } from "@/model/common/components/content-for
 import { useContentIdFromPagePath } from "@/model/common/hooks/model-page-path";
 
 import { useProfileCardFormStatus } from "../../hooks/form-status";
-import { ProfileCardFormCreateConfirmedButton } from "./operation/create-confirmed/button";
-import { ProfileCardFormCreateDraftButton } from "./operation/create-draft/button";
+import { CancelTemporaryCloseProfileCardButton } from "./operation/cancel-temporary-close/button";
+import { ConfirmDraftProfileCardFormButton } from "./operation/confirm-draft/button";
+import { CreateConfirmedProfileCardFormButton } from "./operation/create-confirmed/button";
+import { CreateDraftProfileCardFormButton } from "./operation/create-draft/button";
+import { EditConfirmedProfileCardFormButton } from "./operation/edit-confirmed/button";
+import { EditDraftProfileCardFormButton } from "./operation/edit-draft/button";
+import { TemporarilyCloseProfileCardFormButton } from "./operation/temporarily-close/button";
 
 export const ProfileCardFormFooter: FC = () => {
   const contentId = useContentIdFromPagePath("ProfileCard");
@@ -51,8 +56,8 @@ const NewProfileCardFormFooter: FC = () => {
       </Flex>
 
       <Flex align="center" gap="sm">
-        <ProfileCardFormCreateDraftButton />
-        <ProfileCardFormCreateConfirmedButton />
+        <CreateDraftProfileCardFormButton />
+        <CreateConfirmedProfileCardFormButton />
       </Flex>
     </Flex>
   );
@@ -77,8 +82,8 @@ const DraftProfileCardFormFooter: FC = () => {
       </Flex>
 
       <Flex align="center" gap="sm">
-        <Button variant="outline">更新</Button>
-        <Button>確定保存</Button>
+        <EditDraftProfileCardFormButton />
+        <ConfirmDraftProfileCardFormButton />
       </Flex>
     </Flex>
   );
@@ -88,9 +93,7 @@ const ConfirmedProfileCardFormFooter: FC = () => {
   return (
     <Flex bg="white" p="sm" justify="space-between" style={FOOTER_STYLE}>
       <Flex align="center" gap="sm">
-        <Button variant="outline" color="red">
-          公開停止
-        </Button>
+        <TemporarilyCloseProfileCardFormButton />
 
         <Tooltip
           label={
@@ -105,7 +108,7 @@ const ConfirmedProfileCardFormFooter: FC = () => {
           <IconInfoCircle color="#ccc" />
         </Tooltip>
       </Flex>
-      <Button>更新</Button>
+      <EditConfirmedProfileCardFormButton />
     </Flex>
   );
 };
@@ -114,7 +117,7 @@ const TemporarilyClosedProfileCardFormFooter: FC = () => {
   return (
     <Flex bg="white" p="sm" justify="space-between" style={FOOTER_STYLE}>
       <Flex align="center" gap="sm">
-        <Button variant="outline">再公開</Button>
+        <CancelTemporaryCloseProfileCardButton />
         <Tooltip
           label="再公開すると、公開期間内であればアプリ上に現れるようになります😄"
           withArrow
@@ -123,7 +126,7 @@ const TemporarilyClosedProfileCardFormFooter: FC = () => {
         </Tooltip>
       </Flex>
 
-      <Button>更新</Button>
+      <EditConfirmedProfileCardFormButton />
     </Flex>
   );
 };
