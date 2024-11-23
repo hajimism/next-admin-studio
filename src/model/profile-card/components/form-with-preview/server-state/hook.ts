@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { ProfileCardFormServerStateStoreContext } from "./provider";
+import { getProfileCard } from "../query";
 
-export const useProfileCardFormServerState = () => {
-  return useContext(ProfileCardFormServerStateStoreContext);
+export const useProfileCardServerState = (id: string) => {
+  // TanstackやURQLなど、キャッシュの更新機能があるライブラリを使うと良い
+  return getProfileCard(id);
 };

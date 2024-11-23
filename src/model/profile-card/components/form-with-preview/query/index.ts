@@ -3,9 +3,9 @@ import { PROFILE_CARD_MOCK_DATA } from "@/model/profile-card/mock";
 
 import type { ProfileCardFormServerState } from "../server-state/type";
 
-export const getProfileCard = async (
+export const getProfileCard = (
   id: string,
-): Promise<ProfileCardFormServerState | undefined> => {
+): ProfileCardFormServerState | undefined => {
   if (id === NEW_ITEM_ID) return undefined;
 
   const profileCard = PROFILE_CARD_MOCK_DATA.find(

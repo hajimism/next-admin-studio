@@ -1,6 +1,7 @@
 "use client";
 
-import { type FC, createContext, useRef } from "react";
+import { type FC, type ReactNode, createContext, useRef } from "react";
+
 import { createProfileCardFormStore } from ".";
 import type { ProfileCardForm } from "./type";
 
@@ -13,7 +14,7 @@ export const ProfileCardFormStoreContext = createContext<
 >(undefined);
 
 export const ProfileCardFormStoreProvider: FC<{
-  children: React.ReactNode;
+  children: ReactNode;
   initialState?: ProfileCardForm;
 }> = ({ children, initialState }) => {
   const storeRef = useRef<ProfileCardFormStoreApi>();

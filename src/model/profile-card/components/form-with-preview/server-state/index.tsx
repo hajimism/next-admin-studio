@@ -1,19 +1,17 @@
-import type { FC, ReactNode } from "react";
-import { profileCardConverter } from "../converter";
-import { getProfileCard } from "../query";
-import type { ProfileCardForm } from "../store/type";
-import { ProfileCardFormServerStateProvider } from "./provider";
+"use client";
 
-export const ProfileCardFormServerStateProviderContainer: FC<{
+import type { FC, ReactNode } from "react";
+
+import { profileCardConverter } from "../converter";
+import type { ProfileCardForm } from "../store/type";
+import { useProfileCardServerState } from "./hook";
+
+export const ProfileCardFormProviderContainer: FC<{
   id: string;
-  children: (formValue: ProfileCardForm | undefined) => ReactNode;
+  children: (formValue: ProfileCardForm) => ReactNode;
 }> = async ({ id, children }) => {
-  const serverState = await getProfileCard(id);
+  const serverState = useProfileCardServerState(id);
   const formValue = profileCardConverter.toClient(serverState);
 
-  return (
-    <ProfileCardFormServerStateProvider initialState={serverState}>
-      {children(formValue)}
-    </ProfileCardFormServerStateProvider>
-  );
+  return <>{children(formValue)}</>;
 };

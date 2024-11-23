@@ -10,7 +10,7 @@ import { NEW_ITEM_ID } from "@/model/common/const/key";
 import { useContentIdFromPagePath } from "@/model/common/hooks/model-page-path";
 
 import { profileCardConverter } from "../../converter";
-import { useProfileCardFormServerState } from "../../server-state/hook";
+import { useProfileCardServerState } from "../../server-state/hook";
 import { PROFILE_CARD_FORM_STORE_INITIAL_STATE } from "../../store/const";
 import { useProfileCardFormStore } from "../../store/hook";
 import { deleteProfileCard } from "./operation/delete/query";
@@ -18,7 +18,7 @@ import { deleteProfileCard } from "./operation/delete/query";
 export const ProfileCardFormHeader: FC = () => {
   const contentId = useContentIdFromPagePath("ProfileCard");
   const router = useRouter();
-  const serverState = useProfileCardFormServerState();
+  const serverState = useProfileCardServerState(contentId);
   const setFormValue = useProfileCardFormStore((state) => state.setFormValue);
 
   const isNewItem = contentId === NEW_ITEM_ID;
