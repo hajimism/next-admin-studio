@@ -47,7 +47,7 @@ export const NavBar = () => {
           <Box>
             <NavLink
               key="/"
-              label="トップ"
+              label="ようこそ"
               href="/"
               pl="md"
               hasBorder={false}
