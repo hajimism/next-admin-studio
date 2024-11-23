@@ -2,7 +2,7 @@
   "name": "next-admin-studio",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.13.2",
+  "packageManager": "pnpm@9.14.2",
   "engines": {
     "node": "20.x"
   },
@@ -49,6 +49,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8",
+    "scaffdog": "^4.1.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
