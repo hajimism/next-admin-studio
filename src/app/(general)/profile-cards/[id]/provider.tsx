@@ -1,3 +1,5 @@
+"use client";
+
 import type { FC, ReactNode } from "react";
 
 import { profileCardConverter } from "@/model/profile-card/components/form-with-preview/converter";
