@@ -1,5 +1,10 @@
-import { Stack } from "@mantine/core";
+import { Paper, ScrollArea } from "@mantine/core";
 import type { FC, ReactNode } from "react";
+
+const IPHONE_SE_SIZE = {
+  w: 375,
+  h: 667,
+};
 
 type Props = {
   name: ReactNode;
@@ -13,14 +18,17 @@ export const ProfileCardPreviewTemplate: FC<Props> = ({
   tags,
 }) => {
   return (
-    <Stack
-      w={400}
-      h={270}
-      className="animate-preview-fade-in rounded-md border border-gray-200 border-solid p-4 shadow-lg"
+    <Paper
+      shadow="md"
+      withBorder
+      {...IPHONE_SE_SIZE}
+      className="animate-preview-fade-in rounded-md"
     >
-      {name}
-      {luckyNumber}
-      {tags}
-    </Stack>
+      <ScrollArea {...IPHONE_SE_SIZE} type="never">
+        {name}
+        {luckyNumber}
+        {tags}
+      </ScrollArea>
+    </Paper>
   );
 };
