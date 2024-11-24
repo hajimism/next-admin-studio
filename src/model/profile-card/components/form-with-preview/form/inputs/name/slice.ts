@@ -3,7 +3,7 @@ import {
   getValidationtErrorMessage,
 } from "@/model/common/lib/get-validation-error-message";
 
-import type { FormInputSliceCreater } from "@/model/common/store/type";
+import type { FormInputSliceCreater } from "@/model/common/store/form";
 import {
   validateProfileCardNameOnChange,
   validateProfileCardNameOnSubmit,
