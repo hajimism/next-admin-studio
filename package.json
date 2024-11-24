@@ -13,6 +13,8 @@
     "build": "dotenvx run -f .env.production -- next build",
     "build:dev": "dotenvx run -f .env.development -- next build",
     "build:stg": "dotenvx run -f .env.staging -- next build",
+    "gen": "scaffdog generate && nr check ./src/model/",
+    "scaffold": "bash .scaffdog/init-content.sh",
     "start": "next start",
     "check": "biome check --write",
     "setenv:dev": "dotenvx set -f .env.development",
