@@ -18,10 +18,12 @@ import { {{ inputs.model | pascal }}List } from "@/model/{{ inputs.model }}/comp
 
 export default function {{ inputs.model | pascal }}ListPage() {
   return (
-    <Stack p="xl" gap="lg">
-      <Title>{{ inputs.label }}一覧</Title>
-      <{{ inputs.model | pascal }}List />
-    </Stack>
+    <main>
+      <Stack p="xl" gap="lg">
+        <Title>{{ inputs.label }}一覧</Title>
+        <{{ inputs.model | pascal }}List />
+      </Stack>
+    </main>
   );
 }
 
@@ -85,7 +87,11 @@ export default function {{ inputs.model | pascal }}DetailLayout(props: Props) {
 import { {{ inputs.model | pascal }}FormWithPreview } from "@/model/{{ inputs.model }}/components/form-with-preview";
 
 export default function {{ inputs.model | pascal }}DetailPage() {
-  return <{{ inputs.model | pascal }}FormWithPreview />;
+  return (
+    <main>
+      <{{ inputs.model | pascal }}FormWithPreview />
+    </main>
+  )
 }
 
 ```
@@ -115,7 +121,9 @@ export default async function New{{ inputs.model | pascal }}Page(props: Props) {
 
   return (
     <{{ inputs.model | pascal }}FormStoreProvider initialState={initialState}>
-      <{{ inputs.model | pascal }}FormWithPreview />
+      <main>
+        <{{ inputs.model | pascal }}FormWithPreview />
+      </main>
     </{{ inputs.model | pascal }}FormStoreProvider>
   );
 }
