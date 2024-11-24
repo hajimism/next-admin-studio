@@ -2,7 +2,7 @@ import {
   type ValidationPhase,
   getValidationtErrorMessage,
 } from "@/model/common/lib/get-validation-error-message";
-import type { FormInputSliceCreater } from "@/model/common/types/form-input-slice";
+import type { FormInputSliceCreater } from "@/model/common/store/slice/type";
 
 import {
   validateProfileCardAdminLabelOnChange,
