@@ -20,7 +20,9 @@ export default async function NewProfileCardPage(props: Props) {
 
   return (
     <ProfileCardFormStoreProvider initialState={initialState}>
-      <ProfileCardFormWithPreview />
+      <main>
+        <ProfileCardFormWithPreview />
+      </main>
     </ProfileCardFormStoreProvider>
   );
 }
