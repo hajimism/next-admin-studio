@@ -1,5 +1,3 @@
-import { MODELS } from "@/model/common/const";
-import { profileCardPathMapping } from "@/model/profile-card/lib/path";
 import {
   Box,
   Flex,
@@ -14,6 +12,9 @@ import { type Icon, IconFile, type IconProps } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { FC, ForwardRefExoticComponent, RefAttributes } from "react";
+
+import { MODELS } from "@/model/common/const";
+import { profileCardPathMapping } from "@/model/profile-card/path";
 
 type NavGroup = {
   label: string;

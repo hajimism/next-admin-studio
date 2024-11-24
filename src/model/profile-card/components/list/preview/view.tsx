@@ -4,7 +4,7 @@ import type { FC } from "react";
 
 import { truncateText } from "@/common/lib/truncate-text";
 
-import { profileCardPathMapping } from "@/model/profile-card/lib/path";
+import { profileCardPathMapping } from "@/model/profile-card/path";
 
 import { ProfileCardLuckyNumberPreviewView } from "../../preview/lucky-number";
 import { ProfileCardNamePreviewView } from "../../preview/name";

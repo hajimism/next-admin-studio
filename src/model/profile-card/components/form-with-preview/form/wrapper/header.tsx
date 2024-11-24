@@ -6,7 +6,7 @@ import type { FC } from "react";
 
 import { FormMenuButton } from "@/model/common/components/form-menu";
 import { NEW_ITEM_ID } from "@/model/common/const/key";
-import { profileCardPathMapping } from "@/model/profile-card/lib/path";
+import { profileCardPathMapping } from "@/model/profile-card/path";
 
 import { profileCardConverter } from "../../converter";
 import { useProfileCardServerState } from "../../hooks/server-state";

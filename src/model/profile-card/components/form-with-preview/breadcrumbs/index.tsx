@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 import { MODELS } from "@/model/common/const";
 import { NEW_ITEM_ID } from "@/model/common/const/key";
-import { profileCardPathMapping } from "@/model/profile-card/lib/path";
+import { profileCardPathMapping } from "@/model/profile-card/path";
 
 import { truncateText } from "@/common/lib/truncate-text";
 

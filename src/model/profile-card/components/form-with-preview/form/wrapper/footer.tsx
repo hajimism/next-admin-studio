@@ -7,7 +7,7 @@ import type { FC } from "react";
 
 import { ContentFormFooterTamplate } from "@/model/common/components/content-form-footer-template";
 import { NEW_ITEM_ID } from "@/model/common/const/key";
-import { profileCardPathMapping } from "@/model/profile-card/lib/path";
+import { profileCardPathMapping } from "@/model/profile-card/path";
 
 import { useProfileCardFormStatus } from "../../hooks/form-status";
 import { CancelTemporaryCloseProfileCardButton } from "./operation/cancel-temporary-close/button";

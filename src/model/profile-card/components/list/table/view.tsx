@@ -4,7 +4,7 @@ import type { FC } from "react";
 
 import { truncateText } from "@/common/lib/truncate-text";
 
-import { profileCardPathMapping } from "@/model/profile-card/lib/path";
+import { profileCardPathMapping } from "@/model/profile-card/path";
 
 import { ProfileCardTableHead } from "./head";
 import type { ProfileCardTableList } from "./type";
