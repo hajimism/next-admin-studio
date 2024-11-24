@@ -25,13 +25,13 @@ export const ProfileCardListSearchForm: FC = () => {
   return (
     <SearchFormTemplate
       onSubmit={handleSubmit}
-      renderBasicFilters={() => <ProfileCardListSearchFreeWordInput />}
-      renderAdvancedFilters={() => (
+      basicFilter={<ProfileCardListSearchFreeWordInput />}
+      advancedFilter={
         <>
           <ProfileCardListSearchLuckyNumberInput />
           <ProfileCardListStatusSearchInput />
         </>
-      )}
+      }
     />
   );
 };

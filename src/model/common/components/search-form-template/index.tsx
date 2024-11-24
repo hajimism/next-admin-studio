@@ -1,14 +1,14 @@
 import { Box, Button, Flex, Text } from "@mantine/core";
 import { IconFilter } from "@tabler/icons-react";
-import type { FC, FormEventHandler } from "react";
+import type { FC, FormEventHandler, ReactNode } from "react";
 
 import { CollapsedSearchBox } from "./collapsed-search-box";
 
 export const SearchFormTemplate: FC<{
-  renderBasicFilters: () => React.ReactNode;
-  renderAdvancedFilters: () => React.ReactNode;
+  basicFilter: ReactNode;
+  advancedFilter?: ReactNode;
   onSubmit: FormEventHandler<HTMLFormElement>;
-}> = ({ renderBasicFilters, renderAdvancedFilters, onSubmit }) => {
+}> = ({ basicFilter, advancedFilter, onSubmit }) => {
   return (
     <Box className="rounded border-gray-4 border-solid" pt={12} px={24}>
       <form onSubmit={onSubmit}>
@@ -16,9 +16,11 @@ export const SearchFormTemplate: FC<{
           絞り込み条件
         </Text>
 
-        {renderBasicFilters()}
+        {basicFilter}
 
-        <CollapsedSearchBox>{renderAdvancedFilters()}</CollapsedSearchBox>
+        {advancedFilter && (
+          <CollapsedSearchBox>{advancedFilter}</CollapsedSearchBox>
+        )}
 
         <Flex justify="end" gap="xs" pb="sm" mt="md">
           <Button type="submit" leftSection={<IconFilter size={14} />}>
