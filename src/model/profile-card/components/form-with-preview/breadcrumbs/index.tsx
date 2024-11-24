@@ -4,11 +4,11 @@ import { Anchor, Breadcrumbs, Text } from "@mantine/core";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { truncateText } from "@/common/lib/truncate-text";
+
 import { MODELS } from "@/model/common/const";
 import { NEW_ITEM_ID } from "@/model/common/const/key";
 import { profileCardPathMapping } from "@/model/profile-card/path";
-
-import { truncateText } from "@/common/lib/truncate-text";
 
 import { useProfileCardFormStore } from "../store/hook";
 
