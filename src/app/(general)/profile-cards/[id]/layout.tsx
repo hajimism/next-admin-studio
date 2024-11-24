@@ -3,7 +3,7 @@
 import { type ReactNode, use } from "react";
 
 import { profileCardConverter } from "@/model/profile-card/components/form-with-preview/converter";
-import { useProfileCardServerState } from "@/model/profile-card/components/form-with-preview/server-state/hook";
+import { useProfileCardServerState } from "@/model/profile-card/components/form-with-preview/hooks/server-state";
 import { ProfileCardFormStoreProvider } from "@/model/profile-card/components/form-with-preview/store/provider";
 
 type Props = {

@@ -1,6 +1,6 @@
-import type { ProfileCardFormServerState } from "../components/form-with-preview/server-state/type";
+import type { ProfileCard } from "../type";
 
-export const PROFILE_CARD_MOCK_DATA: ProfileCardFormServerState[] = [
+export const PROFILE_CARD_MOCK_DATA: ProfileCard[] = [
   {
     id: "1",
     adminLabel: "1つめのプロフィールカード",

@@ -9,7 +9,7 @@ import { NEW_ITEM_ID } from "@/model/common/const/key";
 import { profileCardPathMapping } from "@/model/profile-card/lib/path";
 
 import { profileCardConverter } from "../../converter";
-import { useProfileCardServerState } from "../../server-state/hook";
+import { useProfileCardServerState } from "../../hooks/server-state";
 import { PROFILE_CARD_FORM_STORE_INITIAL_STATE } from "../../store/const";
 import { useProfileCardFormStore } from "../../store/hook";
 import { deleteProfileCard } from "./operation/delete/query";

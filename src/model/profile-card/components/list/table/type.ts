@@ -1,6 +1,6 @@
-import type { ProfileCardFormServerState } from "../../form-with-preview/server-state/type";
+import type { ProfileCard } from "../../../type";
 
 export type ProfileCardTableList = Pick<
-  ProfileCardFormServerState,
+  ProfileCard,
   "id" | "adminLabel" | "luckyNumber"
 >[];
