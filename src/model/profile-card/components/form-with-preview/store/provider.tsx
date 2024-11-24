@@ -15,7 +15,7 @@ export const ProfileCardFormStoreContext = createContext<
 
 export const ProfileCardFormStoreProvider: FC<{
   children: ReactNode;
-  initialState?: ProfileCardForm;
+  initialState: ProfileCardForm;
 }> = ({ children, initialState }) => {
   const storeRef = useRef<ProfileCardFormStoreApi>();
   if (!storeRef.current) {
