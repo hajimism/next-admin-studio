@@ -5,8 +5,5 @@
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "files.insertFinalNewline": true,
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  }
+  "files.insertFinalNewline": true
 }
