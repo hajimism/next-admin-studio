@@ -12,10 +12,4 @@ export const profileCardConverter = {
       ...serverState,
     };
   },
-  toServer: (clientState: ProfileCardForm): ProfileCardFormServerState => {
-    return {
-      ...clientState,
-      creationStatus: "DRAFT",
-    };
-  },
 };
