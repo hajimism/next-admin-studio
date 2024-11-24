@@ -58,7 +58,11 @@ export const FormMenuButton: FC<Props> = ({
   return (
     <Menu position="left-start" offset={2}>
       <Menu.Target>
-        <ActionIcon variant="white" size="sm">
+        <ActionIcon
+          variant="white"
+          size="sm"
+          aria-label="フォームメニューを開く"
+        >
           <IconDotsVertical color="gray" />
         </ActionIcon>
       </Menu.Target>
