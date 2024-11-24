@@ -1,10 +1,7 @@
 import { Paper, ScrollArea } from "@mantine/core";
 import type { FC, ReactNode } from "react";
 
-const IPHONE_SE_SIZE = {
-  w: 375,
-  h: 667,
-};
+import { IPHONE_SE_SIZE } from "@/common/const/size";
 
 type Props = {
   name: ReactNode;
