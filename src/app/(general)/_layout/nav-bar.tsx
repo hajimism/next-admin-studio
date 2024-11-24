@@ -67,7 +67,7 @@ export const NavBar = () => {
               }}
             >
               <nav.icon size="1rem" stroke={1.5} color="gray" />
-              <Text c="gray" fz="sm">
+              <Text c="gray" fz="sm" fw="bold">
                 {nav.label}
               </Text>
             </Flex>
