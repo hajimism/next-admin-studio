@@ -7,5 +7,6 @@ export const profileCardListSearchFormToParam = (
   return {
     q: form.freeWord,
     ln: form.luckyNumber,
+    status: form.status,
   };
 };

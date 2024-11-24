@@ -6,6 +6,7 @@ import { SearchFormTemplate } from "@/model/common/components/search-form-templa
 
 import { ProfileCardListSearchFreeWordInput } from "./inputs/free-word";
 import { ProfileCardListSearchLuckyNumberInput } from "./inputs/lucky-number";
+import { ProfileCardListStatusSearchInput } from "./inputs/status";
 import { profileCardListSearchFormToParam } from "./lib/form-to-param";
 import { useProfileCardSearchParams } from "./params/hook";
 import { useProfileCardSearchStore } from "./store/hook";
@@ -25,7 +26,12 @@ export const ProfileCardListSearchForm: FC = () => {
     <SearchFormTemplate
       onSubmit={handleSubmit}
       renderBasicFilters={() => <ProfileCardListSearchFreeWordInput />}
-      renderAdvancedFilters={() => <ProfileCardListSearchLuckyNumberInput />}
+      renderAdvancedFilters={() => (
+        <>
+          <ProfileCardListSearchLuckyNumberInput />
+          <ProfileCardListStatusSearchInput />
+        </>
+      )}
     />
   );
 };
