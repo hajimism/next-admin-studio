@@ -4,9 +4,9 @@ import type { FC, FormEvent } from "react";
 
 import { SearchFormTemplate } from "@/model/common/components/search-form-template";
 
-import { profileCardSearchConverter } from "./converter";
 import { ProfileCardListSearchFreeWordInput } from "./inputs/free-word";
 import { ProfileCardListSearchLuckyNumberInput } from "./inputs/lucky-number";
+import { profileCardListSearchFormToParam } from "./lib/form-to-param";
 import { useProfileCardSearchParams } from "./params/hook";
 import { useProfileCardSearchStore } from "./store/hook";
 
@@ -18,7 +18,7 @@ export const ProfileCardListSearchForm: FC = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setParams(profileCardSearchConverter.toParams(getSearchFormValue()));
+    setParams(profileCardListSearchFormToParam(getSearchFormValue()));
   };
 
   return (

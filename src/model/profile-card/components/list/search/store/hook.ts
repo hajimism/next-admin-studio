@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useStore } from "zustand";
 
 import type { ProfileCardSearchStore } from ".";
-import { profileCardSearchConverter } from "../converter";
+import { profileCardListSearchParamToForm } from "../lib/param-to-form";
 import { useProfileCardSearchParams } from "../params/hook";
 import { ProfileCardSearchStoreContext } from "./provider";
 import type { ProfileCardSearchForm } from "./type";
@@ -25,5 +25,5 @@ export const useProfileCardSearchStore = <T>(
 export const useProfileCardSearchStoreInitialValue =
   (): ProfileCardSearchForm => {
     const [params] = useProfileCardSearchParams();
-    return profileCardSearchConverter.toForm(params);
+    return profileCardListSearchParamToForm(params);
   };
