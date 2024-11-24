@@ -1,6 +1,8 @@
-import { loadingToast } from "@/common/components/form/toast";
 import { Text } from "@mantine/core";
 import { openConfirmModal } from "@mantine/modals";
+
+import { loadingToast } from "@/common/components/form/toast";
+
 import { useProfileCardFormOperationState } from "../../../../store/hook";
 
 const MODAL_PROPS = {
