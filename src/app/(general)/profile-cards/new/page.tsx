@@ -1,6 +1,6 @@
 import type { SearchParams } from "nuqs";
 
-import { copyAndNewParamsCache } from "@/model/common/params/copy-and-new";
+import { copyAndNewParamsCache } from "@/model/common/feature/operation/copy-and-new/params";
 import { ProfileCardFormWithPreview } from "@/model/profile-card/components/form-with-preview";
 import { profileCardServerToForm } from "@/model/profile-card/components/form-with-preview/lib/server-to-form";
 import { getProfileCard } from "@/model/profile-card/components/form-with-preview/query";
