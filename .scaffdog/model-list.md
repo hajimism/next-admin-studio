@@ -259,6 +259,28 @@ export const {{ inputs.model | pascal }}PreviewListView: FC<Props> = ({ {{ input
 
 ```
 
+# `list/search/inputs/free-word/slice.ts`
+
+```ts
+import type { StateCreator } from "zustand";
+
+export type FreeWordSearchInputSlice = {
+  freeWord: string;
+  setFreeWord: (freeWord: string) => void;
+};
+
+export const createFreeWordSearchInputSlice =
+  (initialState: {
+    freeWord: string;
+  }): StateCreator<FreeWordSearchInputSlice> =>
+  (set) => ({
+    freeWord: initialState.freeWord,
+    setFreeWord: (freeWord) => set({ freeWord }),
+  });
+
+```
+
+
 # `list/search/inputs/free-word/index.tsx`
 
 ```tsx
@@ -282,6 +304,29 @@ export const {{ inputs.model | pascal }}ListSearchFreeWordInput = () => {
     />
   );
 };
+
+```
+
+# `list/search/inputs/status/slice.ts`
+
+```ts
+import type { StateCreator } from "zustand";
+
+import type { StatusSearchOption } from "@/model/common/const/search-options";
+
+export type StatusSearchInputSlice = {
+  status: StatusSearchOption;
+  setStatus: (status: StatusSearchOption) => void;
+};
+
+export const createStatusSearchInputSlice =
+  (initialState: {
+    status: StatusSearchOption;
+  }): StateCreator<StatusSearchInputSlice> =>
+  (set) => ({
+    status: initialState.status,
+    setStatus: (status) => set({ status }),
+  });
 
 ```
 
@@ -439,16 +484,17 @@ export const use{{ inputs.model | pascal }}SearchStoreInitialValue =
 ```tsx
 import { create } from "zustand";
 
-import { createCommonSearchFormSlice } from "@/model/common/store/search";
-
 import type { {{ inputs.model | pascal }}SearchForm } from "../inputs/type";
+import { createFreeWordSearchInputSlice } from "../inputs/free-word/slice";
+import { createStatusSearchInputSlice } from "../inputs/status/slice";
 import type { {{ inputs.model | pascal }}SearchStore } from "./type";
 
 export const create{{ inputs.model | pascal }}SearchStore = (
   initialState: {{ inputs.model | pascal }}SearchForm,
 ) =>
   create<{{ inputs.model | pascal }}SearchStore>((set, get, store) => ({
-    ...createCommonSearchFormSlice(initialState)(set, get, store),
+    ...createFreeWordSearchInputSlice(initialState)(set, get, store),
+    ...createStatusSearchInputSlice(initialState)(set, get, store),
     getSearchFormValue: get,
   }));
 
@@ -490,12 +536,14 @@ export const {{ inputs.model | pascal }}SearchStoreProvider: FC<{
 # `list/search/store/type.ts`
 
 ```tsx
-import type { CommonSearchFormSlice } from "@/model/common/store/search";
-
+import type { FreeWordSearchInputSlice } from "../inputs/free-word/slice";
+import type { StatusSearchInputSlice } from "../inputs/status/slice";
 import type { {{ inputs.model | pascal }}SearchForm } from "../inputs/type";
 
-export type {{ inputs.model | pascal }}SearchStore =
-  CommonSearchFormSlice<{{ inputs.model | pascal }}SearchForm>;
+export type {{ inputs.model | pascal }}SearchStore = {
+  getSearchFormValue: () => {{ inputs.model | pascal }}SearchForm;
+} & FreeWordSearchInputSlice &
+  StatusSearchInputSlice;
 
 ```
 

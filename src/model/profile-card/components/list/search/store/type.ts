@@ -1,7 +1,10 @@
-import type { CommonSearchFormSlice } from "@/model/common/store/search";
-
+import type { FreeWordSearchInputSlice } from "../inputs/free-word/slice";
 import type { LuckyNumberSearchInputSlice } from "../inputs/lucky-number/slice";
+import type { StatusSearchInputSlice } from "../inputs/status/slice";
 import type { ProfileCardSearchForm } from "../inputs/type";
 
-export type ProfileCardSearchStore =
-  CommonSearchFormSlice<ProfileCardSearchForm> & LuckyNumberSearchInputSlice;
+export type ProfileCardSearchStore = {
+  getSearchFormValue: () => ProfileCardSearchForm;
+} & FreeWordSearchInputSlice &
+  StatusSearchInputSlice &
+  LuckyNumberSearchInputSlice;
