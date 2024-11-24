@@ -1,6 +1,6 @@
-import type { ProfileCardForm } from "../../form-with-preview/form/type";
+import type { ProfileCard } from "@/model/profile-card/type";
 
 export type ProfileCardPreviewList = Pick<
-  ProfileCardForm,
+  ProfileCard,
   "id" | "name" | "luckyNumber" | "tags"
 >[];
