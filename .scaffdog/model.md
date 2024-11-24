@@ -54,3 +54,16 @@ export const {{ inputs.model | camel }}PathMapping = {
 ```ts
 # {{ inputs.label }}
 ```
+
+# `common/const/index.ts`
+<!-- 新たなモデルを追加 -->
+
+```ts
+{{ read output.abs | before "} as const;" }}
+  {{ inputs.model | pascal }}: {
+    label: "{{ inputs.label }}",
+    color: "rgba(227, 226, 224, 0.5)",
+  },
+{{ read output.abs | after "} as const;" -1 }}
+
+```
