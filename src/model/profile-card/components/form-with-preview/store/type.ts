@@ -1,4 +1,4 @@
-import type { CommonFormSlice } from "@/model/common/store/type";
+import type { CommonFormSlice } from "@/model/common/store/form";
 
 import type { AdminLabelSlice } from "../form/inputs/admin-label/slice";
 import type { LuckyNumberSlice } from "../form/inputs/lucky-number/slice";
