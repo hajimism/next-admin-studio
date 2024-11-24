@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { useStore } from "zustand";
 
-import type { ProfileCardSearchStore } from ".";
+import type { ProfileCardSearchForm } from "../inputs/type";
 import { profileCardListSearchParamToForm } from "../lib/param-to-form";
 import { useProfileCardSearchParams } from "../params/hook";
 import { ProfileCardSearchStoreContext } from "./provider";
-import type { ProfileCardSearchForm } from "./type";
+import type { ProfileCardSearchStore } from "./type";
 
 export const useProfileCardSearchStore = <T>(
   selector: (store: ProfileCardSearchStore) => T,
