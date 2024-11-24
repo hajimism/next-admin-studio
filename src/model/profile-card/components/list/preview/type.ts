@@ -1,4 +1,4 @@
-import type { ProfileCardForm } from "../../form-with-preview/store/type";
+import type { ProfileCardForm } from "../../form-with-preview/form/type";
 
 export type ProfileCardPreviewList = Pick<
   ProfileCardForm,

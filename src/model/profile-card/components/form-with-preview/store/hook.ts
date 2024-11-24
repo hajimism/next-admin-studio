@@ -1,7 +1,9 @@
-import type { ContentOperation } from "@/model/common/feature/operation/const";
-import { getOperationState } from "@/model/common/feature/operation/lib";
 import { useContext } from "react";
 import { useStore } from "zustand";
+
+import type { ContentOperation } from "@/model/common/feature/operation/const";
+import { getOperationState } from "@/model/common/feature/operation/lib";
+
 import { ProfileCardFormStoreContext } from "./provider";
 import type { ProfileCardFormStore } from "./type";
 

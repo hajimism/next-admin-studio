@@ -3,7 +3,7 @@
 import { type FC, type ReactNode, createContext, useRef } from "react";
 
 import { createProfileCardFormStore } from ".";
-import type { ProfileCardForm } from "./type";
+import type { ProfileCardForm } from "../form/type";
 
 export type ProfileCardFormStoreApi = ReturnType<
   typeof createProfileCardFormStore
