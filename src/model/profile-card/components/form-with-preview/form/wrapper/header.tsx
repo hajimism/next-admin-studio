@@ -8,8 +8,8 @@ import { FormMenuButton } from "@/model/common/components/form-menu";
 import { NEW_ITEM_ID } from "@/model/common/const/key";
 import { profileCardPathMapping } from "@/model/profile-card/path";
 
-import { profileCardConverter } from "../../converter";
 import { useProfileCardServerState } from "../../hooks/server-state";
+import { profileCardServerToForm } from "../../lib/server-to-form";
 import { PROFILE_CARD_FORM_STORE_INITIAL_STATE } from "../../store/const";
 import { useProfileCardFormStore } from "../../store/hook";
 import { deleteProfileCard } from "./operation/delete/query";
@@ -34,7 +34,7 @@ export const ProfileCardFormHeader: FC = () => {
     setFormValue(PROFILE_CARD_FORM_STORE_INITIAL_STATE);
     if (!isNewItem) {
       // もともとの値を復元する
-      setFormValue(profileCardConverter.toClient(serverState));
+      setFormValue(profileCardServerToForm(serverState));
     }
   };
 

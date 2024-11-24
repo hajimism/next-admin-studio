@@ -2,8 +2,8 @@
 
 import { type ReactNode, use } from "react";
 
-import { profileCardConverter } from "@/model/profile-card/components/form-with-preview/converter";
 import { useProfileCardServerState } from "@/model/profile-card/components/form-with-preview/hooks/server-state";
+import { profileCardServerToForm } from "@/model/profile-card/components/form-with-preview/lib/server-to-form";
 import { ProfileCardFormStoreProvider } from "@/model/profile-card/components/form-with-preview/store/provider";
 
 type Props = {
@@ -16,7 +16,7 @@ type Props = {
 export default function ProfileCardDetailLayout(props: Props) {
   const { id } = use(props.params);
   const serverState = useProfileCardServerState(id);
-  const formValue = profileCardConverter.toClient(serverState);
+  const formValue = profileCardServerToForm(serverState);
 
   return (
     <ProfileCardFormStoreProvider initialState={formValue}>
