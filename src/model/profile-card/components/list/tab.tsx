@@ -6,7 +6,7 @@ import type { FC, ReactNode } from "react";
 import { ListTab } from "@/model/common/components/list-tab";
 import { NEW_ITEM_ID } from "@/model/common/const/key";
 
-import { profileCardPathMapping } from "../../lib/path";
+import { profileCardPathMapping } from "../../path";
 
 type Props = {
   table: ReactNode;

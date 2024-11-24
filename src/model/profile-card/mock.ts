@@ -1,4 +1,4 @@
-import type { ProfileCard } from "../type";
+import type { ProfileCard } from "./type";
 
 export const PROFILE_CARD_MOCK_DATA: ProfileCard[] = [
   {
