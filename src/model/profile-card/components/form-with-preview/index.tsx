@@ -7,24 +7,18 @@ import { ProfileCardFormPreview } from "./preview";
 export const ProfileCardFormWithPreview = () => {
   return (
     <SimpleGrid cols={2}>
-      <ScrollArea p="xl" className="h-[calc(100vh-60px)]">
-        <Stack>
-          <ProfileCardFormWithPreviewBreadcrumbs />
-          <Stack
-            justify="center"
-            align="center"
-            gap="lg"
-            className="h-[calc(100vh-160px)]"
-          >
+      <Stack p="xl">
+        <ProfileCardFormWithPreviewBreadcrumbs />
+        <Space h={32} />
+        <ScrollArea className="h-[calc(100vh-210px)]" type="never">
+          <Stack justify="center" align="center" gap="lg">
             <ProfileCardFormPreview />
             <Text c="gray" size="sm">
               プレビューは実際の見た目とは異なる可能性があります
             </Text>
-
-            <Space h={80}>{/* ど真ん中よりも少し上に配置したい */}</Space>
           </Stack>
-        </Stack>
-      </ScrollArea>
+        </ScrollArea>
+      </Stack>
 
       <ProfileCardForm />
     </SimpleGrid>
