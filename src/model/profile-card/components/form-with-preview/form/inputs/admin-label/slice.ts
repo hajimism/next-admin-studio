@@ -21,9 +21,9 @@ export type AdminLabelSlice = {
 
 export const createAdminLabelSliceX: FormInputSliceCreater<
   AdminLabelSlice,
-  "adminLabel"
+  { adminLabel: string }
 > = (initalValue) => (set, get) => ({
-  adminLabel: initalValue?.adminLabel ?? "",
+  adminLabel: initalValue.adminLabel,
   setAdminLabel: (adminLabel) => set({ adminLabel }),
   getAdminLabelErrorMessages: (value, phase) => {
     return getValidationtErrorMessage({

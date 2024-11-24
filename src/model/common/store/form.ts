@@ -27,9 +27,6 @@ export type CommonFormSlice<T> = ValidationSlice &
     setFormValue: (profileCardForm: T) => void;
   };
 
-export type FormInputSliceCreater<
-  T extends Record<string, unknown>,
-  S extends keyof T,
-> = (
-  arg: { [key in S]: T[key] } | undefined,
+export type FormInputSliceCreater<T extends Record<string, unknown>, S> = (
+  arg: S,
 ) => StateCreator<T & { validationPhase: ValidationPhase }, [], [], T>;

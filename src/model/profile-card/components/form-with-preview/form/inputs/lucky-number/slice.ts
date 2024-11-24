@@ -18,9 +18,9 @@ export type LuckyNumberSlice = {
 
 export const createLuckyNumberSlice: FormInputSliceCreater<
   LuckyNumberSlice,
-  "luckyNumber"
+  { luckyNumber: number }
 > = (initalValue) => (set, get) => ({
-  luckyNumber: initalValue?.luckyNumber ?? 0,
+  luckyNumber: initalValue.luckyNumber,
   setLuckyNumber: (luckyNumber) => set({ luckyNumber }),
   getLuckyNumberErrorMessages: (value, phase) => {
     return getValidationtErrorMessage({
