@@ -1,5 +1,5 @@
+import type { ProfileCardSearchForm } from "../inputs/type";
 import type { ProfileCardSearchParams } from "../params";
-import type { ProfileCardSearchForm } from "../store/type";
 
 export const profileCardListSearchFormToParam = (
   form: ProfileCardSearchForm,

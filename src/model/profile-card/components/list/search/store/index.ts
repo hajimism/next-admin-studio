@@ -1,19 +1,9 @@
 import { create } from "zustand";
 
-import {
-  type FreeWordSearchInputSlice,
-  createFreeWordSearchInputSlice,
-} from "../inputs/free-word/slice";
-import {
-  type LuckyNumberSearchInputSlice,
-  createLuckyNumberSearchInputSlice,
-} from "../inputs/lucky-number/slice";
-import type { ProfileCardSearchForm } from "./type";
-
-export type ProfileCardSearchStore = FreeWordSearchInputSlice &
-  LuckyNumberSearchInputSlice & {
-    getSearchFormValue: () => ProfileCardSearchForm;
-  };
+import { createFreeWordSearchInputSlice } from "../inputs/free-word/slice";
+import { createLuckyNumberSearchInputSlice } from "../inputs/lucky-number/slice";
+import type { ProfileCardSearchForm } from "../inputs/type";
+import type { ProfileCardSearchStore } from "./type";
 
 export const createProfileCardSearchStore = (
   initialState?: ProfileCardSearchForm,
@@ -21,9 +11,6 @@ export const createProfileCardSearchStore = (
   create<ProfileCardSearchStore>((set, get, store) => ({
     ...createFreeWordSearchInputSlice(set, get, store),
     ...createLuckyNumberSearchInputSlice(set, get, store),
-    getSearchFormValue: () => ({
-      freeWord: get().freeWord,
-      luckyNumber: get().luckyNumber,
-    }),
+    getSearchFormValue: get,
     ...initialState,
   }));
