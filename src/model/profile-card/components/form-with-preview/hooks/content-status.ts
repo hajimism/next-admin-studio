@@ -5,7 +5,7 @@ import {
 
 import { useProfileCardServerState } from "./server-state";
 
-export const useProfileCardFormStatus = (id: string): ContentStatus => {
+export const useProfileCardContentStatus = (id: string): ContentStatus => {
   const serverState = useProfileCardServerState(id);
   return serverState?.creationStatus ?? CONTENT_STATUS.NEW;
 };

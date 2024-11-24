@@ -9,7 +9,7 @@ import { ContentFormFooterTamplate } from "@/model/common/components/content-for
 import { NEW_ITEM_ID } from "@/model/common/const/key";
 import { profileCardPathMapping } from "@/model/profile-card/path";
 
-import { useProfileCardFormStatus } from "../../hooks/form-status";
+import { useProfileCardContentStatus } from "../../hooks/content-status";
 import { CancelTemporaryCloseProfileCardButton } from "./operation/cancel-temporary-close/button";
 import { ConfirmDraftProfileCardFormButton } from "./operation/confirm-draft/button";
 import { CreateConfirmedProfileCardFormButton } from "./operation/create-confirmed/button";
@@ -21,7 +21,7 @@ import { TemporarilyCloseProfileCardFormButton } from "./operation/temporarily-c
 export const ProfileCardFormFooter: FC = () => {
   const pathname = usePathname();
   const contentId = profileCardPathMapping.pathToId(pathname) ?? NEW_ITEM_ID;
-  const status = useProfileCardFormStatus(contentId);
+  const status = useProfileCardContentStatus(contentId);
 
   return (
     <ContentFormFooterTamplate
