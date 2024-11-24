@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 import { createOperationSlice } from "@/model/common/feature/operation/slice";
-import { createValidationSlice } from "@/model/common/store/slice/validation";
+import { createValidationSlice } from "@/model/common/store/validation";
 import { createAdminLabelSliceX } from "../form/inputs/admin-label/slice";
 import { createLuckyNumberSlice } from "../form/inputs/lucky-number/slice";
 import { createNameSlice } from "../form/inputs/name/slice";
