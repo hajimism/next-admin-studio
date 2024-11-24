@@ -14,7 +14,7 @@ export const ProfileCardListStatusSearchInput = () => {
   return (
     <RadioButtonGroup
       label="ステータス"
-      description="クーポンのステータスで絞り込みます。「確定」には「一時非公開」も含まれます。"
+      description="ステータスで絞り込みます。"
       options={STATUS_SEARCH_OPTIONS}
       onChange={(v) => setStatus(v as StatusSearchOption)}
       value={status}
