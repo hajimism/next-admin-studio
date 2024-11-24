@@ -6,7 +6,6 @@ import { truncateText } from "@/common/lib/truncate-text";
 
 import { profileCardPathMapping } from "@/model/profile-card/lib/path";
 
-import { ProfileCardBirthdayPreviewView } from "../../preview/birthday";
 import { ProfileCardLuckyNumberPreviewView } from "../../preview/lucky-number";
 import { ProfileCardNamePreviewView } from "../../preview/name";
 import { ProfileCardTagsPreviewView } from "../../preview/tags";
@@ -44,9 +43,6 @@ export const ProfileCardPreviewListView: FC<Props> = ({ profileCards }) => {
             </Anchor>
             <ProfileCardPreviewTemplate
               name={<ProfileCardNamePreviewView value={profileCard.name} />}
-              birthday={
-                <ProfileCardBirthdayPreviewView value={profileCard.birthday} />
-              }
               luckyNumber={
                 <ProfileCardLuckyNumberPreviewView
                   value={profileCard.luckyNumber}

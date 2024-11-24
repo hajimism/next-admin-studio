@@ -10,16 +10,12 @@ export const profileCardConverter = {
 
     return {
       ...serverState,
-      birthday: serverState.birthday ? new Date(serverState.birthday) : null,
     };
   },
   toServer: (clientState: ProfileCardForm): ProfileCardFormServerState => {
     return {
       ...clientState,
       creationStatus: "DRAFT",
-      birthday: clientState.birthday
-        ? clientState.birthday.toISOString()
-        : null,
     };
   },
 };
