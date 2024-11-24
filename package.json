@@ -28,6 +28,7 @@
     "@mantine/modals": "^7.14.1",
     "@mantine/notifications": "^7.14.1",
     "@mantine/nprogress": "^7.14.1",
+    "@next/bundle-analyzer": "^15.0.3",
     "@tabler/icons-react": "^3.22.0",
     "client-only": "^0.0.1",
     "dayjs": "^1.11.13",
