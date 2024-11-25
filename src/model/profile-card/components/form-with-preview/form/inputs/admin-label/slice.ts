@@ -19,7 +19,7 @@ export type AdminLabelSlice = {
   getAdminLabelIsValid: () => boolean;
 };
 
-export const createAdminLabelSliceX: FormInputSliceCreater<
+export const createAdminLabelSlice: FormInputSliceCreater<
   AdminLabelSlice,
   { adminLabel: string }
 > = (initalValue) => (set, get) => ({

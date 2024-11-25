@@ -20,8 +20,6 @@ export const createValidationSlice: StateCreator<
 
 export type CommonFormSlice<T> = ValidationSlice &
   OperationSlice & {
-    id: string;
-    setId: (id: string) => void;
     getFormIsValid: () => boolean;
     getFormValue: () => T;
     setFormValue: (profileCardForm: T) => void;
