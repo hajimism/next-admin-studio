@@ -122,7 +122,7 @@ export type AdminLabelSlice = {
   getAdminLabelIsValid: () => boolean;
 };
 
-export const createAdminLabelSliceX: FormInputSliceCreater<
+export const createAdminLabelSlice: FormInputSliceCreater<
   AdminLabelSlice,
   { adminLabel: string }
 > = (initalValue) => (set, get) => ({
@@ -1267,18 +1267,16 @@ import { create } from "zustand";
 import { createOperationSlice } from "@/model/common/feature/operation/slice";
 import { createValidationSlice } from "@/model/common/store/form";
 
-import { createAdminLabelSliceX } from "../form/inputs/admin-label/slice";
+import { createAdminLabelSlice } from "../form/inputs/admin-label/slice";
 import type { {{ inputs.model | pascal }}Form } from "../form/type";
 import type { {{ inputs.model | pascal }}FormStore } from "./type";
 
 export const create{{ inputs.model | pascal }}FormStore = (initialState: {{ inputs.model | pascal }}Form) =>
   create<{{ inputs.model | pascal }}FormStore>()((set, get, store) => {
     return {
-      ...createValidationSlice(set, get, store),
       ...createOperationSlice(set, get, store),
-      ...createAdminLabelSliceX(initialState)(set, get, store),
-      id: "",
-      setId: (id) => set({ id }),
+      ...createValidationSlice(set, get, store),
+      ...createAdminLabelSlice(initialState)(set, get, store),
       getFormValue: get,
       setFormValue: ({{ inputs.model | camel }}Form) => set({{ inputs.model | camel }}Form),
       getFormIsValid: () => {
@@ -1331,13 +1329,11 @@ export const {{ inputs.model | pascal }}FormStoreProvider: FC<{
 import type { CommonFormSlice } from "@/model/common/store/form";
 
 import type { AdminLabelSlice } from "../form/inputs/admin-label/slice";
-import type { LuckyNumberSlice } from "../form/inputs/lucky-number/slice";
-import type { NameSlice } from "../form/inputs/name/slice";
-import type { TagsSlice } from "../form/inputs/tags/slice";
 import type { {{ inputs.model | pascal }}Form } from "../form/type";
 
-export type {{ inputs.model | pascal }}FormStore = CommonFormSlice<{{ inputs.model | pascal }}Form> &
- AdminLabelSlice;
+export type {{ inputs.model | pascal }}FormStore = AdminLabelSlice &
+
+CommonFormSlice<{{ inputs.model | pascal }}Form>;
 
 ```
 
