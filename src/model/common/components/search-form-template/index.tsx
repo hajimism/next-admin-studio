@@ -10,7 +10,7 @@ export const SearchFormTemplate: FC<{
   onSubmit: FormEventHandler<HTMLFormElement>;
 }> = ({ basicFilter, advancedFilter, onSubmit }) => {
   return (
-    <Box className="rounded border-gray-4 border-solid" pt={12} px={24}>
+    <Box className="rounded-sm border border-gray-4" pt={12} px={24}>
       <form onSubmit={onSubmit}>
         <Text c="gray" pb={4} size="sm">
           絞り込み条件
