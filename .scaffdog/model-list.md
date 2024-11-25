@@ -557,9 +557,8 @@ import type { FC, FormEvent } from "react";
 import { SearchFormTemplate } from "@/model/common/components/search-form-template";
 
 import { {{ inputs.model | pascal }}ListSearchFreeWordInput } from "./inputs/free-word";
-import { {{ inputs.model | pascal }}ListSearchLuckyNumberInput } from "./inputs/lucky-number";
 import { {{ inputs.model | pascal }}ListStatusSearchInput } from "./inputs/status";
-import { profileCardListSearchFormToParam } from "./lib/form-to-param";
+import { {{ inputs.model | camel }}ListSearchFormToParam } from "./lib/form-to-param";
 import { use{{ inputs.model | pascal }}SearchParams } from "./params/hook";
 import { use{{ inputs.model | pascal }}SearchStore } from "./store/hook";
 
@@ -571,7 +570,7 @@ export const {{ inputs.model | pascal }}ListSearchForm: FC = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setParams(profileCardListSearchFormToParam(getSearchFormValue()));
+    setParams({{ inputs.model | camel }}ListSearchFormToParam(getSearchFormValue()));
   };
 
   return (
@@ -580,7 +579,6 @@ export const {{ inputs.model | pascal }}ListSearchForm: FC = () => {
       basicFilter={<{{ inputs.model | pascal }}ListSearchFreeWordInput />}
       advancedFilter={
         <>
-          <{{ inputs.model | pascal }}ListSearchLuckyNumberInput />
           <{{ inputs.model | pascal }}ListStatusSearchInput />
         </>
       }
